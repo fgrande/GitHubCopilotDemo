@@ -2,14 +2,12 @@
 
 <div class="flex flex-col min-h-full bg-gray-50">
     <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
-        <button
-            @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
+    <header class="flex items-center justify-between p-4 bg-pixel-black text-pixel-white border-pixel">
+        <button     @onclick="OnReset"          class="pixel-button text-xs px-4 py-2">
+            ← BACK
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
+        <h1 class="font-bold text-neon-blue text-lg">SOC OPS</h1>
+        <div class="w-20"></div>
     </header>
 
     <!-- Instructions -->
@@ -20,17 +18,14 @@
     <!-- Bingo indicator -->
     @if (HasBingo)
     {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
+        <div class="bg-neon-yellow text-pixel-black text-center py-4 font-bold text-sm animate-glitch border-pixel">
+            🎉 BINGO! YOU GOT A LINE! 🎉
         </div>
     }
 
     <!-- Board -->
     <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+        <BingoBoard      Board="@Board"    WinningSquareIds="@WinningSquareIds"            OnSquareClick="@OnSquareClick" />
     </div>
 </div>
 

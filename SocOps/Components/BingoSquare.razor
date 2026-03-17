@@ -1,11 +1,7 @@
 @using SocOps.Models
 
-<button
-    @onclick="OnClick"
-    disabled="@Square.IsFreeSpace"
-    class="@GetCssClasses()"
-    aria-pressed="@Square.IsMarked"
-    aria-label="@(Square.IsFreeSpace ? "Free space" : Square.Text)">
+<button    @onclick="OnClick"    disabled="@Square.IsFreeSpace"    class="@GetCssClasses()"    aria-pressed="@Square.IsMarked"
+           aria-label="@(Square.IsFreeSpace ? "Free space" : Square.Text)">
     <span class="wrap-break-word hyphens-auto">@Square.Text</span>
     @if (Square.IsMarked && !Square.IsFreeSpace)
     {
@@ -25,15 +21,15 @@
 
     private string GetCssClasses()
     {
-        var baseClasses = "relative flex items-center justify-center p-1 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight";
+        var baseClasses = "relative flex items-center justify-center p-3 text-center pixel-square select-none min-h-[80px] text-xs leading-tight font-bold";
 
         var stateClasses = Square.IsMarked
             ? IsWinning
-                ? "bg-amber-200 border-amber-400 text-amber-900"
-                : "bg-marked border-marked-border text-green-800"
-            : "bg-white text-gray-700 active:bg-gray-100";
+                ? "bg-neon-yellow text-pixel-black animate-glitch"
+                : "bg-neon-green text-pixel-black"
+            : "bg-pixel-white text-pixel-black hover:bg-pixel-gray hover:animate-flicker";
 
-        var freeSpaceClasses = Square.IsFreeSpace ? "font-bold text-sm" : "";
+        var freeSpaceClasses = Square.IsFreeSpace ? "text-sm" : "";
 
         return $"{baseClasses} {stateClasses} {freeSpaceClasses}";
     }
